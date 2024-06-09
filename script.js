@@ -7,9 +7,17 @@ document.getElementById('yesButton').addEventListener('click', function() {
     document.getElementById('secondDialogBox').classList.remove('hidden');
 });
 
-document.getElementById('noButton').addEventListener('mouseover', function() {
-    swapButtons();
-});
+const isMobileDevice = /Mobi/i.test(window.navigator.userAgent);
+
+if (isMobileDevice) {
+    document.getElementById('noButton').addEventListener('click', function() {
+        swapButtons();
+    });
+} else {
+    document.getElementById('noButton').addEventListener('mouseover', function() {
+        swapButtons();
+    });
+}
 
 function swapButtons() {
     let yesButton = document.getElementById('yesButton');
